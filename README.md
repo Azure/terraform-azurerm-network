@@ -22,7 +22,7 @@ Usage
 
 ```hcl 
 module "network" { 
-    source              = "./path/to/module"
+    source              = "Microsoft/network/azurerm"
     prefix              = "myapp"
     location            = "westus"
     address_space       = "10.0.0.0/16"
