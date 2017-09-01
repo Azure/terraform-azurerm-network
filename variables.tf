@@ -1,6 +1,6 @@
-variable "prefix" {
-  description = "Default prefix to use with your resource names."
-  default = "myapp"
+variable "resource_group_name" {
+  description = "Default resource group name that the network will be created in."
+  default = "myapp-rg"
 }
 
 variable "location" {
@@ -35,4 +35,14 @@ variable "tags" {
     tag1 = ""
     tag2 = ""
   }
+}
+
+variable "allow_rdp_traffic" {
+  description = "This optional variable, when set to true, adds a security rule allowing RDP traffic to flow through to the newly created network. The default value is false."
+  default = false  
+}
+
+variable "allow_ssh_traffic" {
+  description = "This optional variable, when set to true, adds a security rule allowing SSH traffic to flow through to the newly created network. The default value is false."
+  default = false  
 }

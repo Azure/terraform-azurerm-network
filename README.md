@@ -9,7 +9,7 @@ This Terraform module deploys a Virtual Network in Azure with the following char
 Module Input Variables 
 ----------------------
 
-- `prefix` - The prefix that will be used for all resources that will be created by this module.
+- `resource_group_name` - The name of the resource group where the network will be created.
 - `location` - The Azure location where the resources will be created.
 - `address_space` - The address space for the virtual network that will be created.
 - `dns_servers` - DNS Servers to use for this network; if blank, this defaults to use Azure DNS.
@@ -17,13 +17,17 @@ Module Input Variables
 - `subnet_names` - An array of subnet names for subnets that will be created inside this network (this is parallel to subnet_prefixes array).  
 - `tags` - A map of the tags to use on the resources that are deployed with this module.
 
+Optional variables
+- 'allow_rdp_traffic' - if set to true, a security rule allowing RDP traffic is automatically added to all subnets created by this module.
+- 'allow_ssh_traffic' - if set to true, a security rule allowing SSH traffic is automatically added to all subnets created by this module.
+
 Usage
 -----
 
 ```hcl 
 module "network" { 
-    source              = "Microsoft/network/azurerm"
-    prefix              = "myapp"
+    source              = "Azure/network/azurerm"
+    resource_group_name = "myapp"
     location            = "westus"
     address_space       = "10.0.0.0/16"
     subnet_prefixes     = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
