@@ -1,6 +1,13 @@
 # Compiled files
 *.tfstate
 *.tfstate.backup
+Gemfile
+Rakefile
+Gemfile.lock
 
 # Module directory
 .terraform/
+build/
+logs/
+terraform.log
+terraform.tfstate.d/

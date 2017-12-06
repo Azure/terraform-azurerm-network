@@ -1,0 +1,25 @@
+---
+driver:
+  name: "terraform"
+  root_module_directory: "test/integration/fixtures"
+  parallelism: 1
+  variable_files:
+    - "test/integration/fixtures/testing.tfvars"
+
+provisioner:
+  name: "terraform"
+
+platforms:
+  -
+    name: "ubuntu"
+
+verifier:
+  name: "terraform"
+  groups:
+    -
+      name: "local"
+      controls:
+        - "state_file"
+
+suites:
+  - name: "network"
