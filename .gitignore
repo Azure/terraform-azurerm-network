@@ -4,3 +4,10 @@
 
 # Module directory
 .terraform/
+
+test
+
+# Dependencies from microsoft/terraform-test Docker image
+Gemfile
+Rakefile
+build/

@@ -1,0 +1,15 @@
+sudo: true
+dist: trusty
+language: ruby
+rvm:
+  - 2.3
+
+services:
+  - docker
+
+jobs:
+  include:
+    - stage: rake build
+      install: true
+      script:
+      - docker run -v $PWD:/tf-test/module --rm microsoft/terraform-test rake -f ../Rakefile build
