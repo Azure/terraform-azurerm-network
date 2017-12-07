@@ -1,13 +1,13 @@
 # Compiled files
 *.tfstate
 *.tfstate.backup
+Gemfile
+Rakefile
+Gemfile.lock
 
 # Module directory
 .terraform/
-
-test
-
-# Dependencies from microsoft/terraform-test Docker image
-Gemfile
-Rakefile
 build/
+logs/
+terraform.log
+terraform.tfstate.d/
