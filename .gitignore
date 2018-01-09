@@ -32,3 +32,6 @@ Gemfile.lock
 
 # Test Kitchen files.
 .kitchen
+
+# Mac folder attribute file
+.DS_Store
