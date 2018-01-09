@@ -1,15 +1,24 @@
-sudo: true
-dist: trusty
+# Build matrix / environment variable are explained on:
+# http://about.travis-ci.org/docs/user/build-configuration/
+# This file can be validated on:
+# http://lint.travis-ci.org/
+sudo: required
+
 language: ruby
+
 rvm:
   - 2.3
 
 services:
   - docker
 
+env:
+  - TERRAFORM_VERSION=0.11.1 IMAGE_NAME=azure-network-module
+
 jobs:
   include:
     - stage: rake build
       install: true
       script:
-      - docker run -v $PWD:/tf-test/module --rm microsoft/terraform-test rake -f ../Rakefile build
+      - docker build -t ${IMAGE_NAME} .
+      - docker run ${IMAGE_NAME} rake build

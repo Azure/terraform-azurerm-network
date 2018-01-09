@@ -27,6 +27,43 @@ module "network" {
 
 ```
 
+Test
+-----
+### Configurations
+- [Configure Terraform for Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/terraform-install-configure)
+
+We provide 2 ways to build, run, and test module on local dev box:
+
+### Native(Mac/Linux)
+
+#### Prerequisites
+- [Ruby **(~> 2.3)**](https://www.ruby-lang.org/en/downloads/)
+- [Bundler **(~> 1.15)**](https://bundler.io/)
+- [Terraform **(~> 0.11.0)**](https://www.terraform.io/downloads.html)
+
+#### Quick Run
+We provide simple script to quickly set up module development environment:
+```sh
+$ curl -sSL https://raw.githubusercontent.com/Azure/terramodtest/master/tool/env_setup.sh | sudo bash
+```
+Then simply run it in local shell:
+```sh
+$ bundle install
+$ rake build
+$ rake e2e
+```
+
+### Docker
+We provide Dockerfile to build and run module development environment locally:
+#### Prerequisites
+- [Docker](https://www.docker.com/community-edition#/download)
+#### Quick Run
+```sh
+$ docker build -t azure-network .
+$ docker run -it azure-network /bin/sh
+$ rake build
+$ rake e2e
+```
 
 Authors
 =======
