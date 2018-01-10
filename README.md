@@ -41,11 +41,12 @@ We provide 2 ways to build, run, and test module on local dev box:
 - [Bundler **(~> 1.15)**](https://bundler.io/)
 - [Terraform **(~> 0.11.0)**](https://www.terraform.io/downloads.html)
 
-#### Quick Run
+#### Environment setup
 We provide simple script to quickly set up module development environment:
 ```sh
 $ curl -sSL https://raw.githubusercontent.com/Azure/terramodtest/master/tool/env_setup.sh | sudo bash
 ```
+#### Run test
 Then simply run it in local shell:
 ```sh
 $ bundle install
@@ -57,9 +58,12 @@ $ rake e2e
 We provide Dockerfile to build and run module development environment locally:
 #### Prerequisites
 - [Docker](https://www.docker.com/community-edition#/download)
-#### Quick Run
+#### Build the image
 ```sh
-$ docker build -t azure-network .
+docker build --build-arg BUILD_ARM_SUBSCRIPTION_ID=$ARM_SUBSCRIPTION_ID --build-arg BUILD_ARM_CLIENT_ID=$ARM_CLIENT_ID --build-arg BUILD_ARM_CLIENT_SECRET=$ARM_CLIENT_SECRET --build-arg BUILD_ARM_TENANT_ID=$ARM_TENANT_ID -t azure-network .
+```
+#### Run test
+```sh
 $ docker run -it azure-network /bin/sh
 $ rake build
 $ rake e2e
