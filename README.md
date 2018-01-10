@@ -1,3 +1,6 @@
+# terraform-azurerm-network #
+[![Build Status](https://travis-ci.org/Azure/terraform-azurerm-network.svg?branch=master)](https://travis-ci.org/Azure/terraform-azurerm-network)
+
 Create a basic network in Azure
 ==============================================================================
 
