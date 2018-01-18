@@ -42,4 +42,3 @@ variable "tags" {
     tag2 = ""
   }
 }
-
