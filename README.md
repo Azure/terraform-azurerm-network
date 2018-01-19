@@ -4,17 +4,15 @@
 Create a basic network in Azure
 ==============================================================================
 
-This Terraform module deploys a Virtual Network in Azure with the following characteristics: 
+This Terraform module deploys a Virtual Network in Azure with a subnet or a set of subnets passed in as input parameters.
 
-- Creates a network with a subnet or a set of subnets passed in as input parameters.
-- Exposes a security group as one of the output parameters, which you can use to define additional security rules on subnets in the deployed network.
-
+The module does not create nor expose a security group. This would need to be defined separately as additional security rules on subnets in the deployed network.
 
 Usage
 -----
 
-```hcl 
-module "network" { 
+```hcl
+module "network" {
     source              = "Azure/network/azurerm"
     resource_group_name = "myapp"
     location            = "westus"
@@ -28,6 +26,55 @@ module "network" {
                           }
 }
 
+```
+
+Example adding a network security rule for SSH:
+-----------------------------------------------
+
+```hcl
+variable "resource_group_name" { }
+
+module "network" {
+  source              = "../terraform-azurerm-network"
+  resource_group_name = "${var.resource_group_name}"
+  location            = "westus"
+  address_space       = "10.0.0.0/16"
+  subnet_prefixes     = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
+  subnet_names        = ["subnet1", "subnet2", "subnet3"]
+
+  tags = {
+    environment = "dev"
+    costcenter  = "it"
+  }
+}
+
+resource "azurerm_subnet" "subnet" {
+  name  = "subnet1"
+  address_prefix = "10.0.1.0/24"
+  resource_group_name = "${var.resource_group_name}"
+  virtual_network_name = "acctvnet"
+  network_security_group_id = "${azurerm_network_security_group.ssh.id}"
+}
+
+resource "azurerm_network_security_group" "ssh" {
+  depends_on          = ["module.network"]
+  name                = "ssh"
+  location            = "westus"
+  resource_group_name = "${var.resource_group_name}"
+
+  security_rule {
+    name                       = "test123"
+    priority                   = 100
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "22"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  }
+
+}
 ```
 
 Test
@@ -58,19 +105,33 @@ $ rake e2e
 ```
 
 ### Docker
-We provide Dockerfile to build and run module development environment locally:
+
+We provide a Dockerfile to build a new image based `FROM` the `microsoft/terraform-test` Docker hub image which adds additional tools / packages specific for this module (see Custom Image section).  Alternatively use only the `microsoft/terraform-test` Docker hub image [by using these instructions](https://github.com/Azure/terraform-test).
+
 #### Prerequisites
+
 - [Docker](https://www.docker.com/community-edition#/download)
-#### Build the image
+
+#### Custom Image
+
+This builds the custom image:
+
 ```sh
-docker build --build-arg BUILD_ARM_SUBSCRIPTION_ID=$ARM_SUBSCRIPTION_ID --build-arg BUILD_ARM_CLIENT_ID=$ARM_CLIENT_ID --build-arg BUILD_ARM_CLIENT_SECRET=$ARM_CLIENT_SECRET --build-arg BUILD_ARM_TENANT_ID=$ARM_TENANT_ID -t azure-network .
+$ docker build --build-arg BUILD_ARM_SUBSCRIPTION_ID=$ARM_SUBSCRIPTION_ID --build-arg BUILD_ARM_CLIENT_ID=$ARM_CLIENT_ID --build-arg BUILD_ARM_CLIENT_SECRET=$ARM_CLIENT_SECRET --build-arg BUILD_ARM_TENANT_ID=$ARM_TENANT_ID -t azure-network .
 ```
-#### Run test
+
+This runs the build and unit tests:
+
 ```sh
-$ docker run -it azure-network /bin/sh
-$ rake build
-$ rake e2e
+$ docker run --rm azure-network /bin/bash -c "rake build"
 ```
+
+This runs the end to end tests:
+
+```sh
+$ docker run -v ~/.ssh:/root/.ssh/ --rm azure-network /bin/bash -c "rake e2e"
+```
+
 
 Authors
 =======

@@ -42,18 +42,3 @@ variable "tags" {
     tag2 = ""
   }
 }
-
-variable "allow_rdp_traffic" {
-  description = "This optional variable, when set to true, adds a security rule allowing RDP traffic to flow through to the newly created network. The default value is false."
-  default     = false
-}
-
-variable "allow_ssh_traffic" {
-  description = "This optional variable, when set to true, adds a security rule allowing SSH traffic to flow through to the newly created network. The default value is false."
-  default     = false
-}
-
-variable "sg_name" {
-  description = "Give a name to security group"
-  default     = "acctsecgrp"
-}
