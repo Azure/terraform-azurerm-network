@@ -8,9 +8,9 @@ control "state_file" do
   # Define how critical this control is.
   impact 0.6
   # The actual test case.
-  describe file("terraform.tfstate.d/kitchen-terraform-default-network/terraform.tfstate") do
+  describe file("terraform.tfstate.d/kitchen-terraform-default-ubuntu/terraform.tfstate") do
 
-    file = File.read("terraform.tfstate.d/kitchen-terraform-default-network/terraform.tfstate")
+    file = File.read("terraform.tfstate.d/kitchen-terraform-default-ubuntu/terraform.tfstate")
     # Get json object of terraform state file.
     data_hash = JSON.parse(file)
     modules = data_hash["modules"]
