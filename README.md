@@ -129,7 +129,7 @@ $ docker run --rm azure-network /bin/bash -c "bundle install && rake build"
 This runs the end to end tests:
 
 ```sh
-$ docker run -v ~/.ssh:/root/.ssh/ --rm azure-network /bin/bash -c "bundle install && rake e2e"
+$ docker run --rm azure-network /bin/bash -c "bundle install && rake e2e"
 ```
 
 
