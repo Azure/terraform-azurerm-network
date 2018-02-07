@@ -10,6 +10,10 @@ terraform.tfvars
 # Terraform directory
 .terraform/
 terraform.tfstate.d/
+logs/ 
+
+# Terraform log file
+terraform.log
 
 ### https://raw.github.com/github/gitignore/abad92dac5a4306f72242dae3bca6e277bce3615/Global/Vim.gitignore
 

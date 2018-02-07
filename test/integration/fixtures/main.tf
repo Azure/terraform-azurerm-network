@@ -1,5 +1,5 @@
 module "network" {
-  source              = "Azure/network/azurerm"
+  source              = "../../../"
   resource_group_name = "apptest"
   location            = "westus"
   address_space       = "10.0.0.0/16"
