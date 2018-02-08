@@ -15,7 +15,7 @@ control "state_file" do
     data_hash = JSON.parse(file)
     modules = data_hash["modules"]
 
-    subject do modules[1]["resources"]["azurerm_virtual_network.vnet"]["type"] end
+    subject do modules[2]["resources"]["azurerm_virtual_network.vnet"]["type"] end
 
     # Validate the terraform version number field.
     it "is valid" do is_expected.to match "azurerm_virtual_network" end
