@@ -7,9 +7,12 @@ require 'bundler/setup'
 require 'terramodtest'
 
 namespace :presteps do
-  task :clean_up do
-    clean_up_kitchen
-    clean_up_terraform
+  task :ensure do
+    puts "Using dep ensure to install required go packages.\n"
+    success = system ("dep ensure")
+    if not success 
+      raise "ERROR: Dep ensure failed!\n".red
+    end
   end
 end
 
@@ -26,21 +29,15 @@ namespace :static do
 end
 
 namespace :integration do
-  task :converge do
-    kitchen_converge
-  end
-  task :verify do
-    kitchen_verify
-  end
   task :test do
-    kitchen_test
-  end
-  task :destroy do
-    kitchen_destroy
+    success = system ("go test -v ./test/ -timeout 20m")
+    if not success 
+      raise "ERROR: Go test failed!\n".red
+    end
   end
 end
 
-task :prereqs => [ 'presteps:clean_up' ]
+task :prereqs => [ 'presteps:ensure' ]
 
 task :validate => [ 'static:style', 'static:lint' ]
 
@@ -54,4 +51,4 @@ task :e2e => [ 'integration:test' ]
 
 task :default => [ 'build' ]
 
-task :full => [ 'build', 'unit', 'e2e']
+task :full => [ 'build', 'unit', 'e2e' ]
