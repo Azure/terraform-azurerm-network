@@ -27,8 +27,8 @@ func TestTerraformNetwork(t *testing.T) {
 	test_structure.RunTestStage(t, "validate", func() {
 		terraformOptions := test_structure.LoadTerraformOptions(t, fixtureFolder)
 
-		string := terraform.Output(t, terraformOptions, "test_vnet_id")
-		if len(string) <= 0 {
+		vnetID := terraform.Output(t, terraformOptions, "test_vnet_id")
+		if len(vnetID) <= 0 {
 			t.Fatal("Wrong output")
 		}
 	})
