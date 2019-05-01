@@ -19,4 +19,8 @@ resource "azurerm_subnet" "subnet" {
   resource_group_name  = "${azurerm_resource_group.network.name}"
   address_prefix       = "${var.subnet_prefixes[count.index]}"
   count                = "${length(var.subnet_names)}"
+
+  lifecycle = {
+    ignore_changes = ["network_security_group_id"]
+  }
 }
