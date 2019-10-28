@@ -8,6 +8,7 @@ This Terraform module deploys a Virtual Network in Azure with a subnet or a set 
 
 The module does not create nor expose a security group. This would need to be defined separately as additional security rules on subnets in the deployed network.
 
+
 ## Usage
 
 ```hcl
@@ -51,7 +52,11 @@ resource "azurerm_subnet" "subnet" {
   address_prefix = "10.0.1.0/24"
   resource_group_name = "${var.resource_group_name}"
   virtual_network_name = "acctvnet"
-  network_security_group_id = "${azurerm_network_security_group.ssh.id}"
+
+  lifecycle {
+    ignore_changes = ["network_security_group_id"] // We handle association outside of this resource, but dont want this resouce amending it
+  }
+
 }
 
 resource "azurerm_network_security_group" "ssh" {
@@ -72,6 +77,11 @@ resource "azurerm_network_security_group" "ssh" {
     destination_address_prefix = "*"
   }
 
+}
+
+resource "azurerm_subnet_network_security_group_association" "vm" {
+  subnet_id                 = "${azurerm_subnet.subnet.id}"
+  network_security_group_id = "${azurerm_network_security_group.ssh.id}"
 }
 ```
 
