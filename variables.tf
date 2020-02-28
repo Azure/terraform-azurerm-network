@@ -5,11 +5,6 @@ variable "vnet_name" {
 
 variable "resource_group_name" {
   description = "Default resource group name that the network will be created in."
-  default     = "myapp-rg"
-}
-
-variable "location" {
-  description = "The location/region where the core network will be created. The full list of Azure regions can be found at https://azure.microsoft.com/regions"
 }
 
 variable "address_space" {
@@ -35,10 +30,9 @@ variable "subnet_names" {
 
 variable "tags" {
   description = "The tags to associate with your network and subnets."
-  type        = "map"
+  type        = map(string)
 
   default = {
-    tag1 = ""
-    tag2 = ""
+    environment = "dev"
   }
 }

@@ -11,18 +11,21 @@ The module does not create nor expose a security group. This would need to be de
 ## Usage
 
 ```hcl
+resource "azurerm_resource_group" "test" {
+  name     = "my-resGroup"
+  location = "West Europe"
+}
 module "network" {
-    source              = "Azure/network/azurerm"
-    resource_group_name = "myapp"
-    location            = "westus"
-    address_space       = "10.0.0.0/16"
-    subnet_prefixes     = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
-    subnet_names        = ["subnet1", "subnet2", "subnet3"]
+  source              = "Azure/network/azurerm"
+  resource_group_name = azurerm_resource_group.test.name
+  address_space       = "10.0.0.0/16"
+  subnet_prefixes     = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
+  subnet_names        = ["subnet1", "subnet2", "subnet3"]
 
-    tags                = {
-                            environment = "dev"
-                            costcenter  = "it"
-                          }
+  tags = {
+    environment = "dev"
+    costcenter  = "it"
+  }
 }
 
 ```
@@ -30,7 +33,7 @@ module "network" {
 ## Example adding a network security rule for SSH
 
 ```hcl
-variable "resource_group_name" { }
+variable "resource_group_name" {}
 
 module "network" {
   source              = "Azure/network/azurerm"
@@ -47,10 +50,10 @@ module "network" {
 }
 
 resource "azurerm_subnet" "subnet" {
-  name  = "subnet1"
-  address_prefix = "10.0.1.0/24"
-  resource_group_name = "${var.resource_group_name}"
-  virtual_network_name = "acctvnet"
+  name                      = "subnet1"
+  address_prefix            = "10.0.1.0/24"
+  resource_group_name       = "${var.resource_group_name}"
+  virtual_network_name      = "acctvnet"
   network_security_group_id = "${azurerm_network_security_group.ssh.id}"
 }
 
