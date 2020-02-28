@@ -35,7 +35,7 @@ variable "resource_group_name" { }
 
 module "network" {
   source              = "Azure/network/azurerm"
-  resource_group_name = "${var.resource_group_name}"
+  resource_group_name = var.resource_group_name
   location            = "westus"
   address_space       = "10.0.0.0/16"
   subnet_prefixes     = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
@@ -48,15 +48,10 @@ module "network" {
 }
 
 resource "azurerm_subnet" "subnet" {
-  name  = "subnet1"
-  address_prefix = "10.0.1.0/24"
-  resource_group_name = "${var.resource_group_name}"
+  name  = "newsubnet"
+  address_prefix = "10.0.4.0/24"
+  resource_group_name = var.resource_group_name
   virtual_network_name = "acctvnet"
-
-  lifecycle {
-    ignore_changes = ["network_security_group_id"] // We handle association outside of this resource, but dont want this resouce amending it
-  }
-
 }
 
 resource "azurerm_network_security_group" "ssh" {
@@ -76,12 +71,11 @@ resource "azurerm_network_security_group" "ssh" {
     source_address_prefix      = "*"
     destination_address_prefix = "*"
   }
-
 }
 
 resource "azurerm_subnet_network_security_group_association" "vm" {
-  subnet_id                 = "${azurerm_subnet.subnet.id}"
-  network_security_group_id = "${azurerm_network_security_group.ssh.id}"
+  subnet_id                 = azurerm_subnet.subnet.id
+  network_security_group_id = azurerm_network_security_group.ssh.id
 }
 ```
 
