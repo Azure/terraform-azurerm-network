@@ -58,7 +58,7 @@ resource "azurerm_network_security_group" "ssh" {
   depends_on          = ["module.network"]
   name                = "ssh"
   location            = "westus"
-  resource_group_name = "${var.resource_group_name}"
+  resource_group_name = var.resource_group_name
 
   security_rule {
     name                       = "test123"
