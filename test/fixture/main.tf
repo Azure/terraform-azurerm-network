@@ -1,3 +1,7 @@
+provider "azurerm" {
+  features {}
+}
+
 resource "random_id" "rg_name" {
   byte_length = 8
 }
