@@ -11,9 +11,10 @@ The module does not create nor expose a security group. This would need to be de
 ## Usage
 ```hcl
 resource "azurerm_resource_group" "test" {
-  name     = "my-resGroup"
+  name     = "my-resources"
   location = "West Europe"
 }
+
 module "network" {
   source              = "Azure/network/azurerm"
   resource_group_name = azurerm_resource_group.test.name
