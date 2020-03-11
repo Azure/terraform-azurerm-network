@@ -4,7 +4,7 @@ variable "vnet_name" {
 }
 
 variable "resource_group_name" {
-  description = "Default resource group name that the network will be created in."
+  description = "The name of an existing resource group to be imported."
 }
 
 variable "address_space" {

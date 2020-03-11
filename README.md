@@ -6,7 +6,7 @@
 
 This Terraform module deploys a Virtual Network in Azure with a subnet or a set of subnets passed in as input parameters.
 
-The module does not create nor expose a security group. This would need to be defined separately as additional security rules on subnets in the deployed network.
+The module does not create nor expose a security group. You could use https://github.com/Azure/terraform-azurerm-vnet to assign network security group to the subnets.
 
 ## Usage
 ```hcl

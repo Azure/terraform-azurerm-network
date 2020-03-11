@@ -1,3 +1,1 @@
-variable "location" {
-  default = "eastus"
-}
+variable "location" {}
