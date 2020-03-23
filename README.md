@@ -61,7 +61,6 @@ Then simply run it in local shell:
 
 ```sh
 $ cd $GOPATH/src/{directory_name}/
-$ dep ensure
 $ bundle install
 $ rake build
 $ rake full
