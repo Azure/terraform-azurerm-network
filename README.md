@@ -62,7 +62,6 @@ Then simply run it in local shell:
 ```sh
 $ cd $GOPATH/src/{directory_name}/
 $ dep ensure
-$ export TERRAFORM_VERSION=0.12.20 (enter your terraform_version)
 $ bundle install
 $ rake build
 $ rake full
