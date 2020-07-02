@@ -131,6 +131,7 @@ $ docker run --rm azure-network /bin/bash -c "bundle install && rake full"
 ## Authors
 
 Originally created by [Eugene Chuvyrov](http://github.com/echuvyrov)
+Updated by [Alex Bevan](http://github.com/Alex Bevan)
 
 ## License
 
