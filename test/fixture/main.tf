@@ -7,17 +7,40 @@ resource "random_id" "rg_name" {
 }
 
 resource "azurerm_resource_group" "test" {
-  name     = "testRG-${random_id.rg_name.hex}"
+  name     = "test-${random_id.rg_name.hex}-rg"
   location = var.location
 }
 
-module "network" {
+
+module "vnet" {
   source              = "../../"
   resource_group_name = azurerm_resource_group.test.name
-  address_space       = "10.0.0.0/16"
-  subnet_prefixes     = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
-  subnet_names        = ["subnet1", "subnet2", "subnet3"]
+  name                = "vnet"
+  address_space       = ["10.0.0.0/16"]
 
+  subnets = {
+    subnet1 = {
+      address_prefixes = ["10.0.1.0/24"]
+    }
+    subnet2 = {
+      address_prefixes = ["10.0.2.0/24"]
+    }
+  }
+
+  tags = {
+    environment = "dev"
+    costcenter  = "it"
+  }
+}
+
+// example with no subnets
+
+module "vnet2" {
+  source              = "../../"
+  resource_group_name = azurerm_resource_group.test.name
+  name                = "vnet2"
+  address_space       = ["10.0.0.0/16"]
+  subnets             = {}
   tags = {
     environment = "dev"
     costcenter  = "it"
