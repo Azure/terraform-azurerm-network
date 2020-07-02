@@ -20,7 +20,11 @@ resource "azurerm_subnet" "this" {
 }
 
 resource "azurerm_network_security_group" "this" {
-  for_each            = var.create_nsgs ? var.subnets : {}
+  for_each = {
+    for k, r in var.subnets : k => r
+    if lookup(r, "nsg", true)
+  }
+
   name                = each.key
   location            = data.azurerm_resource_group.this.location
   resource_group_name = data.azurerm_resource_group.this.name
@@ -28,7 +32,12 @@ resource "azurerm_network_security_group" "this" {
 }
 
 resource "azurerm_subnet_network_security_group_association" "vnet" {
-  for_each                  = var.create_nsgs ? var.subnets : {}
+  for_each = {
+    for k, r in var.subnets : k => r
+    if lookup(r, "nsg", true)
+  }
   subnet_id                 = azurerm_subnet.this[each.key].id
   network_security_group_id = azurerm_network_security_group.this[each.key].id
 }
+
+

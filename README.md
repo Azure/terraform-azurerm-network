@@ -7,7 +7,7 @@
 This Terraform module deploys a Virtual Network in Azure with a subnet and NSG or a set of subnets passed in as input parameters.
 
 
-## Usage - create vnet two subnets with associated nsgs
+## Usage - create vnet two subnets, subnet1 without NSG subnet2 with NSG
 ```hcl
 resource "azurerm_resource_group" "test" {
   name     = "my-resources"
@@ -22,6 +22,7 @@ module "network" {
   subnets = {
     subnet1 = {
       address_prefixes = ["10.0.1.0/24"]
+      nsg              = false
     }
     subnet2 = {
       address_prefixes = ["10.0.2.0/24"]
