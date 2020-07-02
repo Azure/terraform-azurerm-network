@@ -32,6 +32,12 @@ variable "subnets" {
   }
 }
 
+variable "create_nsgs" {
+  type = bool
+  description = "(optional) Should this module create a NSG for each subnet"
+  default = true
+}
+
 variable "tags" {
   description = "The tags to associate with your network and subnets."
   type        = map(string)
