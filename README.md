@@ -129,6 +129,38 @@ $ docker run --rm azure-network /bin/bash -c "bundle install && rake full"
 ```
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Requirements
+
+No requirements.
+
+## Providers
+
+| Name | Version |
+|------|---------|
+| azurerm | n/a |
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| address\_space | The address space that is used by the virtual network. | `list(string)` | <pre>[<br>  "10.0.0.0/16"<br>]</pre> | no |
+| dns\_servers | The DNS servers to be used with vNet. | `list` | `[]` | no |
+| name | Name of the vnet to create | `string` | `"acctvnet"` | no |
+| resource\_group\_name | Name of the resource group to be imported. | `any` | n/a | yes |
+| subnets | If no values specified, this defaults to creating two subnets | `map` | <pre>{<br>  "subnet1": {<br>    "address_prefixes": [<br>      "10.0.2.0/24"<br>    ]<br>  }<br>}</pre> | no |
+| tags | The tags to associate with your network and subnets. | `map(string)` | <pre>{<br>  "env": "test"<br>}</pre> | no |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| network\_security\_groups | The network security groups objects created by this module |
+| subnets | The subnets created by this module |
+| vnet | The entire azurerm\_virtual\_network resource |
+| vnet\_address\_space | The address space of the newly created vNet |
+| vnet\_id | The id of the newly created vNet |
+| vnet\_location | The location of the newly created vNet |
+| vnet\_name | The Name of the newly created vNet |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
