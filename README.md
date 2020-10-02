@@ -128,6 +128,10 @@ This runs the full tests:
 $ docker run --rm azure-network /bin/bash -c "bundle install && rake full"
 ```
 
+<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
+<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
 ## Authors
 
 Originally created by [Eugene Chuvyrov](http://github.com/echuvyrov)
