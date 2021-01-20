@@ -57,7 +57,6 @@ module "network" {
     "subnet1" : true
   }
 
-
   tags = {
     environment = "dev"
     costcenter  = "it"
