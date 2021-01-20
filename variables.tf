@@ -42,3 +42,9 @@ variable "tags" {
     environment = "dev"
   }
 }
+
+variable "subnet_enforce_private_link_endpoint_network_policies" {
+  description = "A map with key (string) `subnet name`, value (bool) `true` or `false` to indicate enable or disable network policies for the private link endpoint on the subnet. Default value is false."
+  type        = map(string)
+  default     = {}
+}
