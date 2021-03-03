@@ -65,6 +65,29 @@ module "network" {
 
 ```
 
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| address\_space | The address space that is used by the virtual network. | `string` | `"10.0.0.0/16"` | no |
+| dns\_servers | The DNS servers to be used with vNet. | `list(string)` | `[]` | no |
+| resource\_group\_name | The name of an existing resource group to be imported. | `string` | n/a | yes |
+| subnet\_enforce\_private\_link\_endpoint\_network\_policies | A map with key (string) `subnet name`, value (bool) `true` or `false` to indicate enable or disable network policies for the private link endpoint on the subnet. Default value is false. | `map(bool)` | `{}` | no |
+| subnet\_names | A list of public subnets inside the vNet. | `list(string)` | <pre>[<br>  "subnet1"<br>]</pre> | no |
+| subnet\_prefixes | The address prefix to use for the subnet. | `list(string)` | <pre>[<br>  "10.0.1.0/24"<br>]</pre> | no |
+| tags | The tags to associate with your network and subnets. | `map(string)` | <pre>{<br>  "environment": "dev"<br>}</pre> | no |
+| vnet\_name | Name of the vnet to create. | `string` | `"acctvnet"` | no |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| vnet\_address\_space | The address space of the newly created vNet |
+| vnet\_id | The id of the newly created vNet |
+| vnet\_location | The location of the newly created vNet |
+| vnet\_name | The Name of the newly created vNet |
+| vnet\_subnets | The ids of subnets created inside the newl vNet |
+
 ## Test
 
 ### Configurations
