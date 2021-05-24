@@ -15,6 +15,12 @@ variable "address_space" {
   default     = "10.0.0.0/16"
 }
 
+variable "address_spaces" {
+  description = "The list of the address spaces that is used by the virtual network."
+  type        = list(string)
+  default     = []
+}
+
 # If no values specified, this defaults to Azure DNS 
 variable "dns_servers" {
   description = "The DNS servers to be used with vNet."
