@@ -22,6 +22,10 @@ module "network" {
     "subnet1" : true
   }
 
+  subnet_service_endpoints = {
+    "subnet1" : ["Microsoft.Sql"]
+  }
+
   tags = {
     environment = "dev"
     costcenter  = "it"

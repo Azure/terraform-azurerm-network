@@ -54,3 +54,9 @@ variable "subnet_enforce_private_link_endpoint_network_policies" {
   type        = map(bool)
   default     = {}
 }
+
+variable "subnet_service_endpoints" {
+  description = "A map with key (string) `subnet name`, value (list(string)) to indicate enabled service endpoints on the subnet. Default value is []."
+  type        = map(list(string))
+  default     = {}
+}
