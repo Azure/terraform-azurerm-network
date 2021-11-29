@@ -28,16 +28,9 @@ variable "dns_servers" {
   default     = []
 }
 
-variable "subnet_prefixes" {
-  description = "The address prefix to use for the subnet."
-  type        = list(string)
-  default     = ["10.0.1.0/24"]
-}
-
-variable "subnet_names" {
-  description = "A list of public subnets inside the vNet."
-  type        = list(string)
-  default     = ["subnet1"]
+variable "subnets_list" {
+  description = "Subnet list to be created"
+  type        = map(any)
 }
 
 variable "tags" {
@@ -47,16 +40,4 @@ variable "tags" {
   default = {
     environment = "dev"
   }
-}
-
-variable "subnet_enforce_private_link_endpoint_network_policies" {
-  description = "A map with key (string) `subnet name`, value (bool) `true` or `false` to indicate enable or disable network policies for the private link endpoint on the subnet. Default value is false."
-  type        = map(bool)
-  default     = {}
-}
-
-variable "subnet_service_endpoints" {
-  description = "A map with key (string) `subnet name`, value (list(string)) to indicate enabled service endpoints on the subnet. Default value is []."
-  type        = map(list(string))
-  default     = {}
 }
