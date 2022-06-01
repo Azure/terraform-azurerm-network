@@ -38,11 +38,9 @@ func TestTerraformNetwork(t *testing.T) {
 		terraformOptions := test_structure.LoadTerraformOptions(t, fixtureFolder)
 		terraform.Destroy(t, terraformOptions)
 	})
-
 }
 
 func configureTerraformOptions(t *testing.T, fixtureFolder string) *terraform.Options {
-
 	terraformOptions := &terraform.Options{
 		// The path to where our Terraform code is located
 		TerraformDir: fixtureFolder,
