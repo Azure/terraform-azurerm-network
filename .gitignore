@@ -10,7 +10,10 @@ terraform.tfvars
 # Terraform directory
 .terraform/
 terraform.tfstate.d/
-logs/ 
+logs/
+
+**/.terraform.lock.hcl
+.terraform.locl.hcl
 
 # Go vendor directory
 vendor/
