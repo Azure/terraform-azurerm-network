@@ -6,13 +6,13 @@ SET THIS FILE'S PATH TO $TFLINT_CONFIG ENVVIRONMENT VARIABLE.
 
 plugin "azurerm" {
   enabled = true
-  version = "0.18.0"
+  version = "0.19.0"
   source  = "github.com/terraform-linters/tflint-ruleset-azurerm"
 }
 
 plugin "basic-ext" {
   enabled     = true
-  version     = "0.2.0"
+  version     = "0.2.1"
   source      = "github.com/Azure/tflint-ruleset-basic-ext"
   signing_key = <<-KEY
 -----BEGIN PGP PUBLIC KEY BLOCK-----
