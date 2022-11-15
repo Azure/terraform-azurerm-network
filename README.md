@@ -171,16 +171,16 @@ Originally created by [Eugene Chuvyrov](http://github.com/echuvyrov)
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
-| Name                                                                      | Version |
-|---------------------------------------------------------------------------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.2  |
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm)       | >= 3.0  |
+| Name                                                                      | Version       |
+|---------------------------------------------------------------------------|---------------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.2        |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm)       | >= 3.0, < 4.0 |
 
 ## Providers
 
-| Name                                                          | Version |
-|---------------------------------------------------------------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | >= 3.0  |
+| Name                                                          | Version       |
+|---------------------------------------------------------------|---------------|
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | >= 3.0, < 4.0 |
 
 ## Modules
 
