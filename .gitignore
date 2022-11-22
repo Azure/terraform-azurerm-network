@@ -10,7 +10,10 @@ terraform.tfvars
 # Terraform directory
 .terraform/
 terraform.tfstate.d/
-logs/ 
+logs/
+
+**/.terraform.lock.hcl
+.terraform.locl.hcl
 
 # Go vendor directory
 vendor/
@@ -42,3 +45,21 @@ Gemfile.lock
 
 # Mac folder attribute file
 .DS_Store
+
+
+.terraform.tfstate.lock.info
+
+# SSH Key
+private_ssh_key
+
+# generated readme by the pr-check job
+
+README-generated.md
+
+**/override.tf
+
+.tflint.hcl
+.tflint_example.hcl
+
+tfmod-scaffold/
+scripts

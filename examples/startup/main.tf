@@ -7,8 +7,8 @@ resource "random_id" "rg_name" {
 }
 
 resource "azurerm_resource_group" "test" {
-  name     = "testRG-${random_id.rg_name.hex}"
   location = var.location
+  name     = "testRG-${random_id.rg_name.hex}"
 }
 
 module "network" {
