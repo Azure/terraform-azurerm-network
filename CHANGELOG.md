@@ -5,6 +5,7 @@
 **Merged pull requests:**
 
 - Add CI pipeline [\#73](https://github.com/Azure/terraform-azurerm-network/pull/73) ([jiaweitao001](https://github.com/jiaweitao001))
+- Adding Microsoft SECURITY.MD [\#69](https://github.com/Azure/terraform-azurerm-network/pull/69) ([microsoft-github-policy-service[bot]](https://github.com/apps/microsoft-github-policy-service))
 - Add new variable `address_spaces` [\#61](https://github.com/Azure/terraform-azurerm-network/pull/61) ([yupwei68](https://github.com/yupwei68))
 - ADD variable to configure service endpoints [\#60](https://github.com/Azure/terraform-azurerm-network/pull/60) ([goatwu1993](https://github.com/goatwu1993))
 - adds missing words and fixes consistency [\#55](https://github.com/Azure/terraform-azurerm-network/pull/55) ([ksatirli](https://github.com/ksatirli))
