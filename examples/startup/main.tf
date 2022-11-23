@@ -30,6 +30,4 @@ module "network" {
     environment = "dev"
     costcenter  = "it"
   }
-
-  depends_on = [azurerm_resource_group.test]
 }
