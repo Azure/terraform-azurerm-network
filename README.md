@@ -135,13 +135,13 @@ In pre-commit task, we will:
 Then we can run the pr-check task to check whether our code meets our pipeline's requirement(We strongly recommend you run the following command before you commit):
 
 ```shell
-$ docker run --rm -v $(pwd):/src -w /src -e CHECKOV_CONFIG=.checkov_config.yaml -e TFLINT_CONFIG=.tflint_alt.hcl mcr.microsoft.com/azterraform:latest make pr-check
+$ docker run --rm -v $(pwd):/src -w /src -e TFLINT_CONFIG=.tflint_alt.hcl mcr.microsoft.com/azterraform:latest make pr-check
 ```
 
 On Windows Powershell:
 
 ```shell
-$ docker run --rm -v ${pwd}:/src -w /src -e CHECKOV_CONFIG=.checkov_config.yaml -e TFLINT_CONFIG=.tflint_alt.hcl mcr.microsoft.com/azterraform:latest make pr-check
+$ docker run --rm -v ${pwd}:/src -w /src -e TFLINT_CONFIG=.tflint_alt.hcl mcr.microsoft.com/azterraform:latest make pr-check
 ```
 
 To run the e2e-test, we can run the following command:
