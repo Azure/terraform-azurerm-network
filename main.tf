@@ -9,7 +9,7 @@ resource "azurerm_virtual_network" "vnet" {
   location            = data.azurerm_resource_group.network.location
   address_space       = length(var.address_spaces) == 0 ? [var.address_space] : var.address_spaces
   dns_servers         = var.dns_servers
-#  tags                = var.tags
+  #  tags                = var.tags
 }
 
 resource "azurerm_subnet" "subnet" {
