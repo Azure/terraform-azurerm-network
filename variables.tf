@@ -28,6 +28,12 @@ variable "dns_servers" {
   default     = []
 }
 
+variable "resource_group_location" {
+  description = "The location/region where the virtual network is created. Changing this forces a new resource to be created."
+  type        = string
+  default     = null
+}
+
 variable "subnet_prefixes" {
   description = "The address prefix to use for the subnet."
   type        = list(string)
