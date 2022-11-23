@@ -4,6 +4,7 @@
 
 **Merged pull requests:**
 
+- Removing dependency in example [\#77](https://github.com/Azure/terraform-azurerm-network/pull/77) ([jiaweitao001](https://github.com/jiaweitao001))
 - Add CI pipeline [\#73](https://github.com/Azure/terraform-azurerm-network/pull/73) ([jiaweitao001](https://github.com/jiaweitao001))
 - Adding Microsoft SECURITY.MD [\#69](https://github.com/Azure/terraform-azurerm-network/pull/69) ([microsoft-github-policy-service[bot]](https://github.com/apps/microsoft-github-policy-service))
 - Add new variable `address_spaces` [\#61](https://github.com/Azure/terraform-azurerm-network/pull/61) ([yupwei68](https://github.com/yupwei68))
