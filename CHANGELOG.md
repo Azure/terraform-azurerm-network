@@ -4,9 +4,20 @@
 
 **Merged pull requests:**
 
+- Fix CI pipeline by adding missing override file, version upgrade test and correct changelog filename [\#76](https://github.com/Azure/terraform-azurerm-network/pull/76) ([lonegunmanb](https://github.com/lonegunmanb))
+
+## [4.0.1](https://github.com/Azure/terraform-azurerm-network/tree/4.0.1) (2022-11-23)
+
+**Merged pull requests:**
+
 - Removing dependency in example [\#77](https://github.com/Azure/terraform-azurerm-network/pull/77) ([jiaweitao001](https://github.com/jiaweitao001))
-- Add CI pipeline [\#73](https://github.com/Azure/terraform-azurerm-network/pull/73) ([jiaweitao001](https://github.com/jiaweitao001))
 - Adding Microsoft SECURITY.MD [\#69](https://github.com/Azure/terraform-azurerm-network/pull/69) ([microsoft-github-policy-service[bot]](https://github.com/apps/microsoft-github-policy-service))
+
+## [4.0.0](https://github.com/Azure/terraform-azurerm-network/tree/4.0.0) (2022-11-22)
+
+**Merged pull requests:**
+
+- Add CI pipeline [\#73](https://github.com/Azure/terraform-azurerm-network/pull/73) ([jiaweitao001](https://github.com/jiaweitao001))
 - Add new variable `address_spaces` [\#61](https://github.com/Azure/terraform-azurerm-network/pull/61) ([yupwei68](https://github.com/yupwei68))
 - ADD variable to configure service endpoints [\#60](https://github.com/Azure/terraform-azurerm-network/pull/60) ([goatwu1993](https://github.com/goatwu1993))
 - adds missing words and fixes consistency [\#55](https://github.com/Azure/terraform-azurerm-network/pull/55) ([ksatirli](https://github.com/ksatirli))
@@ -36,16 +47,6 @@
 - remove undefined dns\_servers output [\#6](https://github.com/Azure/terraform-azurerm-network/pull/6) ([ricoli](https://github.com/ricoli))
 - Added vnet name as parameter [\#2](https://github.com/Azure/terraform-azurerm-network/pull/2) ([jmapro](https://github.com/jmapro))
 - Changes for Terraform Module Registry formatting [\#1](https://github.com/Azure/terraform-azurerm-network/pull/1) ([cgriggs01](https://github.com/cgriggs01))
-
-## [v0.9.3](https://github.com/Azure/terraform-azurerm-network/tree/v0.9.3) (2017-09-01)
-
-## [v0.9.2](https://github.com/Azure/terraform-azurerm-network/tree/v0.9.2) (2017-08-30)
-
-## [v0.9.0](https://github.com/Azure/terraform-azurerm-network/tree/v0.9.0) (2017-08-30)
-
-## [v0.9.1](https://github.com/Azure/terraform-azurerm-network/tree/v0.9.1) (2017-08-30)
-
-## [v0.2.1](https://github.com/Azure/terraform-azurerm-network/tree/v0.2.1) (2017-08-24)
 
 
 
