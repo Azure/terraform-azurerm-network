@@ -6,6 +6,7 @@
 
 - Replace location with local variable [\#78](https://github.com/Azure/terraform-azurerm-network/pull/78) ([jiaweitao001](https://github.com/jiaweitao001))
 - Fix CI pipeline by adding missing override file, version upgrade test and correct changelog filename [\#76](https://github.com/Azure/terraform-azurerm-network/pull/76) ([lonegunmanb](https://github.com/lonegunmanb))
+- Rewrite output to get rid of legacy index syntax [\#75](https://github.com/Azure/terraform-azurerm-network/pull/75) ([lonegunmanb](https://github.com/lonegunmanb))
 
 ## [4.0.1](https://github.com/Azure/terraform-azurerm-network/tree/4.0.1) (2022-11-23)
 
