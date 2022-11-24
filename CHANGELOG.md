@@ -4,6 +4,8 @@
 
 **Merged pull requests:**
 
+- Add support for `delegation` block for `azurerm_subnet resource` [\#81](https://github.com/Azure/terraform-azurerm-network/pull/81) ([lonegunmanb](https://github.com/lonegunmanb))
+- reorder variables, outputs and arguments [\#80](https://github.com/Azure/terraform-azurerm-network/pull/80) ([lonegunmanb](https://github.com/lonegunmanb))
 - Replace location with local variable [\#78](https://github.com/Azure/terraform-azurerm-network/pull/78) ([jiaweitao001](https://github.com/jiaweitao001))
 - Fix CI pipeline by adding missing override file, version upgrade test and correct changelog filename [\#76](https://github.com/Azure/terraform-azurerm-network/pull/76) ([lonegunmanb](https://github.com/lonegunmanb))
 - Rewrite output to get rid of legacy index syntax [\#75](https://github.com/Azure/terraform-azurerm-network/pull/75) ([lonegunmanb](https://github.com/lonegunmanb))
