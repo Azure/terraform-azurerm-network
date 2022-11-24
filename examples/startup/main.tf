@@ -21,7 +21,20 @@ module "network" {
   subnet_enforce_private_link_endpoint_network_policies = {
     "subnet1" : true
   }
-
+  subnet_delegation = {
+    subnet1 = [
+      {
+        name = "delegation"
+        service_delegation = {
+          name = "Microsoft.ContainerInstance/containerGroups"
+          actions = [
+            "Microsoft.Network/virtualNetworks/subnets/join/action",
+            "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action"
+          ]
+        }
+      }
+    ]
+  }
   subnet_service_endpoints = {
     "subnet1" : ["Microsoft.Sql"]
   }
