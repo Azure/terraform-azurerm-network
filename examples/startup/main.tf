@@ -29,7 +29,6 @@ module "network" {
           name = "Microsoft.ContainerInstance/containerGroups"
           actions = [
             "Microsoft.Network/virtualNetworks/subnets/action",
-            "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action"
           ]
         }
       }
