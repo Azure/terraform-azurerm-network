@@ -27,4 +27,17 @@ resource "azurerm_subnet" "subnet" {
   virtual_network_name                           = azurerm_virtual_network.vnet.name
   enforce_private_link_endpoint_network_policies = lookup(var.subnet_enforce_private_link_endpoint_network_policies, var.subnet_names[count.index], false)
   service_endpoints                              = lookup(var.subnet_service_endpoints, var.subnet_names[count.index], [])
+
+  dynamic "delegation" {
+    for_each = lookup(var.subnet_delegation, var.subnet_names[count.index], [])
+
+    content {
+      name = delegation.value.name
+
+      service_delegation {
+        name    = delegation.value.service_delegation.name
+        actions = delegation.value.service_delegation.actions
+      }
+    }
+  }
 }

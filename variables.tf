@@ -28,6 +28,19 @@ variable "resource_group_location" {
   default     = null
 }
 
+variable "subnet_delegation" {
+  description = "`service_delegation` blocks for `azurerm_subnet` resource, subnet names as keys, list of delegation blocks as value, more details about delegation block could be found at the [document](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet#delegation)."
+  type = map(list(object({
+    name = string
+    service_delegation = object({
+      name    = string
+      actions = optional(list(string))
+    })
+  })))
+  default  = {}
+  nullable = false
+}
+
 variable "subnet_enforce_private_link_endpoint_network_policies" {
   description = "A map with key (string) `subnet name`, value (bool) `true` or `false` to indicate enable or disable network policies for the private link endpoint on the subnet. Default value is false."
   type        = map(bool)
