@@ -1,5 +1,11 @@
 # Changelog
 
+## [Unreleased](https://github.com/Azure/terraform-azurerm-network/tree/HEAD)
+
+**Merged pull requests:**
+
+- Bump tflint plugin version, add new checking rule [\#83](https://github.com/Azure/terraform-azurerm-network/pull/83) ([lonegunmanb](https://github.com/lonegunmanb))
+
 ## [4.1.0](https://github.com/Azure/terraform-azurerm-network/tree/4.1.0) (2022-11-24)
 
 **Merged pull requests:**
