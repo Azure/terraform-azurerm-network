@@ -42,4 +42,5 @@ module "network" {
     environment = "dev"
     costcenter  = "it"
   }
+  use_for_each = true
 }
