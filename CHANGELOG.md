@@ -4,6 +4,7 @@
 
 **Merged pull requests:**
 
+- Add new variable `use_for_each` so we can use `for_each` to create multiple resource instances. [\#84](https://github.com/Azure/terraform-azurerm-network/pull/84) ([lonegunmanb](https://github.com/lonegunmanb))
 - Bump tflint plugin version, add new checking rule [\#83](https://github.com/Azure/terraform-azurerm-network/pull/83) ([lonegunmanb](https://github.com/lonegunmanb))
 - Upgrade `terraform-module-test-helper` lib so we can get rid of override file to execute version upgrade test [\#82](https://github.com/Azure/terraform-azurerm-network/pull/82) ([lonegunmanb](https://github.com/lonegunmanb))
 
