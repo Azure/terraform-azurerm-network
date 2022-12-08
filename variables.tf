@@ -73,6 +73,13 @@ variable "tags" {
   }
 }
 
+variable "use_for_each" {
+  description = "Use `for_each` instead of `count` to create multiple resource instances."
+  type        = bool
+  default     = false
+  nullable    = false
+}
+
 variable "vnet_name" {
   description = "Name of the vnet to create."
   type        = string
