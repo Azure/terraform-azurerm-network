@@ -39,6 +39,7 @@ jobs:
             MAJOR_VERSION=$((MAJOR_VERSION+1))
           fi
           docker run --rm -v $(pwd):/src -w /src githubchangeloggenerator/github-changelog-generator -u ${{ github.repository_owner }} -p ${{ github.event.repository.name }} -t ${{ secrets.GITHUB_TOKEN }} --no-issues --no-compare-link --include-tags-regex "$MAJOR_VERSION\..*\..*"
+          sudo chmod -R ugo+rwX .
       - name: Commit & Push changes
         uses: actions-js/push@master
         with:
