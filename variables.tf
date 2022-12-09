@@ -3,6 +3,12 @@ variable "resource_group_name" {
   type        = string
 }
 
+variable "use_for_each" {
+  description = "Use `for_each` instead of `count` to create multiple resource instances."
+  type        = bool
+  nullable    = false
+}
+
 variable "address_space" {
   description = "The address space that is used by the virtual network."
   type        = string
@@ -71,13 +77,6 @@ variable "tags" {
   default = {
     environment = "dev"
   }
-}
-
-variable "use_for_each" {
-  description = "Use `for_each` instead of `count` to create multiple resource instances."
-  type        = bool
-  default     = false
-  nullable    = false
 }
 
 variable "vnet_name" {

@@ -1,5 +1,19 @@
 # terraform-azurerm-network
 
+## Create a basic network in Azure
+
+This Terraform module deploys a Virtual Network in Azure with a subnet or a set of subnets passed in as input parameters.
+
+The module does not create nor expose a security group. You could use https://github.com/Azure/terraform-azurerm-vnet to assign network security group to the subnets.
+
+## Notice on Upgrade to V5.x
+
+In v5.0.0, we would make `var.use_for_each` a required variable so the users must set the value explicitly. For whom are maintaining the existing infrastructure that was created with `count` should use `false`, for those who are creating a new stack, we encourage them to use `true`.
+
+V5.0.0 is a major version upgrade. Extreme caution must be taken during the upgrade to avoid resource replacement and downtime by accident.
+
+Running the `terraform plan` first to inspect the plan is strongly advised.
+
 ## Notice on Upgrade to V4.x
 
 We've added a CI pipeline for this module to speed up our code review and to enforce a high code quality standard, if you want to contribute by submitting a pull request, please read [Pre-Commit & Pr-Check & Test](#Pre-Commit--Pr-Check--Test) section, or your pull request might be rejected by CI pipeline.
@@ -9,12 +23,6 @@ A pull request will be reviewed when it has passed Pre Pull Request Check in the
 V4.0.0 is a major version upgrade. Extreme caution must be taken during the upgrade to avoid resource replacement and downtime by accident.
 
 Running the `terraform plan` first to inspect the plan is strongly advised.
-
-## Create a basic network in Azure
-
-This Terraform module deploys a Virtual Network in Azure with a subnet or a set of subnets passed in as input parameters.
-
-The module does not create nor expose a security group. You could use https://github.com/Azure/terraform-azurerm-vnet to assign network security group to the subnets.
 
 ## Usage in Terraform 0.13
 ```hcl
@@ -39,7 +47,7 @@ module "network" {
     "subnet2" : ["Microsoft.Sql"],
     "subnet3" : ["Microsoft.Sql"]
   }
-
+  use_for_each = true
   tags = {
     environment = "dev"
     costcenter  = "it"
@@ -76,7 +84,7 @@ module "network" {
     "subnet2" : ["Microsoft.Sql"],
     "subnet3" : ["Microsoft.Sql"]
   }
-
+  use_for_each = true
   tags = {
     environment = "dev"
     costcenter  = "it"
@@ -220,7 +228,7 @@ No modules.
 | <a name="input_subnet_prefixes"></a> [subnet\_prefixes](#input\_subnet\_prefixes)                                                                                                                             | The address prefix to use for the subnet.                                                                                                                                                                                                                                                     | `list(string)`                                                                                                                                                                 | <pre>[<br>  "10.0.1.0/24"<br>]</pre>        |    no    |
 | <a name="input_subnet_service_endpoints"></a> [subnet\_service\_endpoints](#input\_subnet\_service\_endpoints)                                                                                                | A map with key (string) `subnet name`, value (list(string)) to indicate enabled service endpoints on the subnet. Default value is [].                                                                                                                                                         | `map(list(string))`                                                                                                                                                            | `{}`                                        |    no    |
 | <a name="input_tags"></a> [tags](#input\_tags)                                                                                                                                                                | The tags to associate with your network and subnets.                                                                                                                                                                                                                                          | `map(string)`                                                                                                                                                                  | <pre>{<br>  "environment": "dev"<br>}</pre> |    no    |
-| <a name="input_use_for_each"></a> [use\_for\_each](#input\_use\_for\_each)                                                                                                                                    | Use `for_each` instead of `count` to create multiple resource instances.                                                                                                                                                                                                                      | `bool`                                                                                                                                                                         | `false`                                     |    no    |
+| <a name="input_use_for_each"></a> [use\_for\_each](#input\_use\_for\_each)                                                                                                                                    | Use `for_each` instead of `count` to create multiple resource instances.                                                                                                                                                                                                                      | `bool`                                                                                                                                                                         | n/a                                         |   yes    |
 | <a name="input_vnet_name"></a> [vnet\_name](#input\_vnet\_name)                                                                                                                                               | Name of the vnet to create.                                                                                                                                                                                                                                                                   | `string`                                                                                                                                                                       | `"acctvnet"`                                |    no    |
 
 ## Outputs

@@ -42,5 +42,5 @@ module "network" {
     environment = "dev"
     costcenter  = "it"
   }
-  use_for_each = true
+  use_for_each = var.use_for_each
 }
