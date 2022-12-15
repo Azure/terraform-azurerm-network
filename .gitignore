@@ -63,3 +63,4 @@ README-generated.md
 
 tfmod-scaffold/
 scripts
+test/go.sum
