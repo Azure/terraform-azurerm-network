@@ -1,5 +1,11 @@
 # Changelog
 
+## [Unreleased](https://github.com/Azure/terraform-azurerm-network/tree/HEAD)
+
+**Merged pull requests:**
+
+- Bump github.com/gruntwork-io/terratest from 0.41.6 to 0.41.7 in /test [\#86](https://github.com/Azure/terraform-azurerm-network/pull/86) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [5.0.0](https://github.com/Azure/terraform-azurerm-network/tree/5.0.0) (2022-12-13)
 
 **Merged pull requests:**
