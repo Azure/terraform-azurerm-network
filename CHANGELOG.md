@@ -4,6 +4,8 @@
 
 **Merged pull requests:**
 
+- Bump github.com/gruntwork-io/terratest from 0.41.10 to 0.41.11 in /test [\#98](https://github.com/Azure/terraform-azurerm-network/pull/98) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump golang.org/x/net from 0.1.0 to 0.7.0 in /test [\#96](https://github.com/Azure/terraform-azurerm-network/pull/96) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump github.com/hashicorp/go-getter from 1.6.1 to 1.7.0 in /test [\#95](https://github.com/Azure/terraform-azurerm-network/pull/95) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump github.com/hashicorp/go-getter/v2 from 2.1.1 to 2.2.0 in /test [\#94](https://github.com/Azure/terraform-azurerm-network/pull/94) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump github.com/Azure/terraform-module-test-helper from 0.7.1 to 0.8.1 in /test [\#93](https://github.com/Azure/terraform-azurerm-network/pull/93) ([dependabot[bot]](https://github.com/apps/dependabot))
