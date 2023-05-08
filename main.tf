@@ -15,7 +15,14 @@ resource "azurerm_virtual_network" "vnet" {
   name                = var.vnet_name
   resource_group_name = var.resource_group_name
   dns_servers         = var.dns_servers
-  tags                = var.tags
+  tags = merge(var.tags, (/*<box>*/ (var.tracing_tags_enabled ? { for k, v in /*</box>*/ {
+    avm_git_commit           = "c506f86f75a34ad34c2b4437e8076f1f06bf6a00"
+    avm_git_file             = "main.tf"
+    avm_git_last_modified_at = "2022-11-23 09:20:55"
+    avm_git_org              = "Azure"
+    avm_git_repo             = "terraform-azurerm-network"
+    avm_yor_trace            = "a94ff969-3b61-4138-8ca1-852c553ce148"
+  } /*<box>*/ : replace(k, "avm_", var.tracing_tags_prefix) => v } : {}) /*</box>*/))
 }
 
 moved {
