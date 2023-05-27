@@ -28,7 +28,7 @@ jobs:
   - script: git clone malformed input
     condition: eq(${{ parameters.succeed }}, false)
 
-- job:
+- job: ErrorHandler
   dependsOn: Work
   condition: failed()
   steps: 
