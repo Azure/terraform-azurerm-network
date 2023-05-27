@@ -1,38 +1,10 @@
 # Changelog
 
-## [Unreleased](https://github.com/Azure/terraform-azurerm-network/tree/HEAD)
+## [5.2.0](https://github.com/nmadesh20/terraform-azurerm-network/tree/5.2.0) (2023-02-28)
 
-**Merged pull requests:**
+## [5.1.0](https://github.com/nmadesh20/terraform-azurerm-network/tree/5.1.0) (2023-01-28)
 
-- Bump github.com/Azure/terraform-module-test-helper from 0.9.1 to 0.13.0 in /test [\#106](https://github.com/Azure/terraform-azurerm-network/pull/106) ([dependabot[bot]](https://github.com/apps/dependabot))
-
-## [5.2.0](https://github.com/Azure/terraform-azurerm-network/tree/5.2.0) (2023-02-28)
-
-**Merged pull requests:**
-
-- Bump github.com/stretchr/testify from 1.8.1 to 1.8.2 in /test [\#99](https://github.com/Azure/terraform-azurerm-network/pull/99) ([dependabot[bot]](https://github.com/apps/dependabot))
-- Bump github.com/gruntwork-io/terratest from 0.41.10 to 0.41.11 in /test [\#98](https://github.com/Azure/terraform-azurerm-network/pull/98) ([dependabot[bot]](https://github.com/apps/dependabot))
-- Bump github.com/Azure/terraform-module-test-helper from 0.8.1 to 0.9.1 in /test [\#97](https://github.com/Azure/terraform-azurerm-network/pull/97) ([dependabot[bot]](https://github.com/apps/dependabot))
-- Bump golang.org/x/net from 0.1.0 to 0.7.0 in /test [\#96](https://github.com/Azure/terraform-azurerm-network/pull/96) ([dependabot[bot]](https://github.com/apps/dependabot))
-- Bump github.com/hashicorp/go-getter from 1.6.1 to 1.7.0 in /test [\#95](https://github.com/Azure/terraform-azurerm-network/pull/95) ([dependabot[bot]](https://github.com/apps/dependabot))
-- Bump github.com/hashicorp/go-getter/v2 from 2.1.1 to 2.2.0 in /test [\#94](https://github.com/Azure/terraform-azurerm-network/pull/94) ([dependabot[bot]](https://github.com/apps/dependabot))
-- Bump github.com/Azure/terraform-module-test-helper from 0.7.1 to 0.8.1 in /test [\#93](https://github.com/Azure/terraform-azurerm-network/pull/93) ([dependabot[bot]](https://github.com/apps/dependabot))
-
-## [5.1.0](https://github.com/Azure/terraform-azurerm-network/tree/5.1.0) (2023-01-28)
-
-**Merged pull requests:**
-
-- Bump github.com/Azure/terraform-module-test-helper from 0.6.0 to 0.7.1 in /test [\#91](https://github.com/Azure/terraform-azurerm-network/pull/91) ([dependabot[bot]](https://github.com/apps/dependabot))
-- Bump github.com/gruntwork-io/terratest from 0.41.7 to 0.41.9 in /test [\#90](https://github.com/Azure/terraform-azurerm-network/pull/90) ([dependabot[bot]](https://github.com/apps/dependabot))
-- Clarify Terraform 1.3 requirement \(fixes \#88\) [\#89](https://github.com/Azure/terraform-azurerm-network/pull/89) ([don-code](https://github.com/don-code))
-- Bump github.com/Azure/terraform-module-test-helper from 0.4.0 to 0.6.0 in /test [\#87](https://github.com/Azure/terraform-azurerm-network/pull/87) ([dependabot[bot]](https://github.com/apps/dependabot))
-- Bump github.com/gruntwork-io/terratest from 0.41.6 to 0.41.7 in /test [\#86](https://github.com/Azure/terraform-azurerm-network/pull/86) ([dependabot[bot]](https://github.com/apps/dependabot))
-
-## [5.0.0](https://github.com/Azure/terraform-azurerm-network/tree/5.0.0) (2022-12-13)
-
-**Merged pull requests:**
-
-- Make `var.use_for_each` required [\#85](https://github.com/Azure/terraform-azurerm-network/pull/85) ([lonegunmanb](https://github.com/lonegunmanb))
+## [5.0.0](https://github.com/nmadesh20/terraform-azurerm-network/tree/5.0.0) (2022-12-13)
 
 
 
