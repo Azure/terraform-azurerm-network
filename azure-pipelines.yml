@@ -14,24 +14,30 @@ trigger:
 pool:
   default
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+jobs:
+- job: Work
+  steps:
+  - script: echo Hello, world!
+    displayName: 'Run a one-line script'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+  - script: |
+      echo Add other tasks to build, test, and deploy your project.
+      echo See https://aka.ms/yaml
+    displayName: 'Run a multi-line script'
 
-- script: git clone malformed input
-  condition: eq(${{ parameters.succeed }}, false)
+  - script: git clone malformed input
+    condition: eq(${{ parameters.succeed }}, false)
 
-- bash: |
-    az boards work-item create \
-    --title "Build $(build.buildNumber) failed" \
-    --type bug \
-    --org $(System.TeamFoundationCollectionUri) \
-    --project $(System.TeamProject)
-  env: 
-    AZURE_DEVOPS_EXT_PAT: $(System.AccessToken)
-  displayName: 'Create work item on failure'
+- job:
+  dependsOn: Work
+  condition: failed()
+  steps: 
+  - bash: |
+      az boards work-item create \
+      --title "Build $(build.buildNumber) failed" \
+      --type bug \
+      --org $(System.TeamFoundationCollectionUri) \
+      --project $(System.TeamProject)
+    env: 
+      AZURE_DEVOPS_EXT_PAT: $(System.AccessToken)
+    displayName: 'Create work item on failure'
