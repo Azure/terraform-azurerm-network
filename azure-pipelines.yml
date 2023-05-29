@@ -8,8 +8,19 @@ parameters:
     displayName: Succeed or Fail
     type: boolean
     default: false
+
 trigger:
-- main
+ branches:
+   include:
+     - releases/*
+   exclude:
+     - main
+
+pr:
+ branches:
+   include:
+     - main
+
 
 pool:
   default
