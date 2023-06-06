@@ -4,6 +4,7 @@
 
 **Merged pull requests:**
 
+- Bump github.com/Azure/terraform-module-test-helper from 0.13.0 to 0.14.0 in /test [\#117](https://github.com/Azure/terraform-azurerm-network/pull/117) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Add tracing tag toggle variables [\#108](https://github.com/Azure/terraform-azurerm-network/pull/108) ([lonegunmanb](https://github.com/lonegunmanb))
 - Bump github.com/Azure/terraform-module-test-helper from 0.9.1 to 0.13.0 in /test [\#106](https://github.com/Azure/terraform-azurerm-network/pull/106) ([dependabot[bot]](https://github.com/apps/dependabot))
 
