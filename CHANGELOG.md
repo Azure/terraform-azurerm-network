@@ -1,5 +1,11 @@
 # Changelog
 
+## [Unreleased](https://github.com/Azure/terraform-azurerm-network/tree/HEAD)
+
+**Merged pull requests:**
+
+- Bump github.com/Azure/terraform-module-test-helper from 0.14.0 to 0.16.0 in /test [\#125](https://github.com/Azure/terraform-azurerm-network/pull/125) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [5.3.0](https://github.com/Azure/terraform-azurerm-network/tree/5.3.0) (2023-06-06)
 
 **Merged pull requests:**
