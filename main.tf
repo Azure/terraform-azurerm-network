@@ -21,7 +21,7 @@ resource "azurerm_virtual_network" "vnet" {
     avm_git_last_modified_at = "2022-11-23 09:20:55"
     avm_git_org              = "Azure"
     avm_git_repo             = "terraform-azurerm-network"
-    avm_yor_trace            = "aedafc56-ff63-46ac-a821-5b86c3896c5e"
+    avm_yor_trace            = "7f614813-224a-46c0-91d7-855dc7d6d5db"
     } /*<box>*/ : replace(k, "avm_", var.tracing_tags_prefix) => v } : {}) /*</box>*/), (/*<box>*/ (var.tracing_tags_enabled ? { for k, v in /*</box>*/ {
     avm_yor_name = "vnet"
   } /*<box>*/ : replace(k, "avm_", var.tracing_tags_prefix) => v } : {}) /*</box>*/))
